@@ -21,5 +21,10 @@ public class Lambdas {
 
         System.out.println(upperCaseName.apply("Alex0", 20));
 
+        Integer number = null;
+        // primitive not use here
+        int counter = 0;
+
+
     }
 }

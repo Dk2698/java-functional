@@ -14,7 +14,7 @@ public class JavaTriesToProtectUs {
                 .map(e -> e * factor); //this line will fail compilation
         //the above closure is not pure
 
-        factor = 0;
+//        factor = 0; error
 
         result.forEach(System.out::println);
     }

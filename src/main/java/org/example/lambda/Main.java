@@ -131,4 +131,43 @@ public class Main {
         System.out.println(num);
 
     }
+
+    public  static  void methodReference(){
+        List.of(1,2,3,4).forEach(x -> System.out.println(x));
+
+        // syntactic sugar
+        List.of(1,2,3,4).forEach(System.out::println);
+        //1. (arg) -> ClassName.staticMethod(arg )
+        // ClassName::staticMethod
+
+        //(arg) -> arg.someMethod()
+        // ClassName::instanceMethod
+
+        //2. (arg1, arg2, ..) -> arg1.someMethod(arg2)
+        // ClassName::staticMethod;
+
+        List<String> str = List.of("abr","hahshs","hdss");
+        str.sort((s1,s2) -> s1.compareToIgnoreCase(s2));
+
+        str.sort(String::compareToIgnoreCase);
+
+
+        // local variables of type List<Integer> lst
+        //3 (arg) -> lst.something(arg)
+        //LocalReferenceVariable::methodName
+
+       // (list,element) -> list.contains(element);
+        //List::contains
+        //(String s) -> Integer.parseInt(s);
+        // Integer::parseInt
+
+        // () -> new ArrayList<>();
+        // ArrayList::new
+
+        //() -> new Student();
+        // Student::new
+
+        //(marks, age) -> new Student(22,22);
+        // Student::new
+    }
 }

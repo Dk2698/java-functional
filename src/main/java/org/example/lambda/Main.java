@@ -4,13 +4,21 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
+    private  int fields;
+
     //  test lambda
     public  List<Hotel>  testLambda(){
         HotelService hotelService = new HotelService();
-        FilteringCondition lambdaExp = hotel -> {
-            return  hotel.getHotelType() == HotelType.FIVE_STAR;
-        };
 
+//        int PRICE = 200;
+        final int PRICE = 200;
+
+        FilteringCondition lambdaExp = hotel -> {
+           // this.fields ; // this contex that not anonymous class and using local variable
+//            PRICE++ ; // local variable must be final in  lambada expression
+            return  hotel.getPricePerNight() <= PRICE;
+        };
+        PRICE++; // change here outsize lambda expression
         return  hotelService.filterHotels(lambdaExp);
     }
     public static void main(String[] args) {

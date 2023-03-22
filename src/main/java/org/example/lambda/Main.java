@@ -1,5 +1,6 @@
 package org.example.lambda;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -22,6 +23,20 @@ public class Main {
             }
         }); // pass anonymous inner class, no name, no create separate class
         System.out.println("List of hotels price less tha 2000 " + fiveStar);
+
+
+        // convert to lambda expression
+        List<Hotel> fiveStar2 = hotelService.filterHotels( (Hotel hotel) -> {
+                return hotel.getHotelType() == HotelType.FIVE_STAR;
+            });
+        System.out.println("List of hotels price less tha 2000 " + fiveStar);
+
+
+        List<Integer> list = List.of(1,2,3,4,5);
+        Collections.sort(list,(Integer a, Integer b) -> {return b -a;} );
+
+        Runnable
+
     }
 
     /* passing function in java
@@ -31,4 +46,5 @@ public class Main {
         4. pass an object of the concrete implementation of the interface
     */
     // passing function as parameter without lambda
+
 }

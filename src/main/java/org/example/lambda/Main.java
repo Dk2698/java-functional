@@ -4,6 +4,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
+    //  test lambda
+    public  List<Hotel>  testLambda(){
+        HotelService hotelService = new HotelService();
+        FilteringCondition lambdaExp = hotel -> {
+            return  hotel.getHotelType() == HotelType.FIVE_STAR;
+        };
+
+        return  hotelService.filterHotels(lambdaExp);
+    }
     public static void main(String[] args) {
         HotelService  hotelService = new HotelService();
 
@@ -35,7 +44,12 @@ public class Main {
         List<Integer> list = List.of(1,2,3,4,5);
         Collections.sort(list,(Integer a, Integer b) -> {return b -a;} );
 
-        Runnable
+        Collections.sort(list,(a, b) ->  b -a );
+
+        FilteringCondition lambdaExp = hotel -> hotel.getPricePerNight() <=2000;
+
+        List<Hotel> hotels1 = hotelService.filterHotels(lambdaExp);
+
 
     }
 
@@ -46,5 +60,7 @@ public class Main {
         4. pass an object of the concrete implementation of the interface
     */
     // passing function as parameter without lambda
+    // in argument type remove and one parameter no need round parenthesis
+    // one line statement, remove curly braces, return, semicolon
 
 }
